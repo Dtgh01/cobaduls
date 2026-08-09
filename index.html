@@ -13,7 +13,61 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Animasi Surat Berdetak / Mengambang */
+    body {
+      background-color: #ebdcd9;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%239e5b5b' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.8' transform='translate(8,8) scale(0.7) rotate(-12 12 12)' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3Cpath stroke-width='1.5' transform='translate(36,32) scale(0.55) rotate(18 12 12)' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 50px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 15px;
+      overflow: hidden;
+    }
+
+    /* Container Card Utama - Glassmorphism */
+    .card {
+      background: rgba(255, 255, 255, 0.5) !important;
+      backdrop-filter: blur(1px) !important;
+      -webkit-backdrop-filter: blur(1px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      border-radius: 20px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+      padding: 15px 10px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      position: relative;
+    }
+
+    #page-1, #page-2, #page-3, #page-4 {
+      background: transparent !important;
+    }
+
+    #page-5 {
+      background: transparent !important;
+      max-height: 95vh;
+      overflow-y: auto;
+      padding-right: 5px;
+      padding-bottom: 50px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    #page-5::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    h2 {
+      color: #7a2e2e;
+      margin-bottom: 12px;
+      font-size: clamp(18px, 5vw, 22px);
+    }
+
     .floating-envelope {
       font-size: 65px;
       cursor: pointer;
@@ -23,32 +77,23 @@
     }
 
     @keyframes pulseFloat {
-      0% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-8px) scale(1.1); /* Surat membesar & mengambang sedikit */
-      }
-      100% {
-        transform: translateY(0) scale(1);
-      }
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.1); }
     }
 
-    /* Layout Galeri 3 Foto */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       margin-top: 15px;
     }
 
     .photo-grid .grid-item-wide {
-      grid-column: span 2; /* Foto pertama melebar di atas */
+      grid-column: span 2;
     }
 
-    /* Bingkai Foto Polaris Style */
     .polaroid-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.85);
       padding: 8px 8px 12px 8px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.06);
@@ -63,7 +108,7 @@
     }
 
     .polaroid-card.grid-item-wide img {
-      height: 180px; /* Foto utama lebih tinggi */
+      height: 180px;
     }
 
     .polaroid-caption {
@@ -73,9 +118,8 @@
       font-weight: bold;
     }
 
-    /* Kartu Khusus Foto Notes Ucapan */
     .note-card {
-      background: #fff8f6;
+      background: rgba(255, 248, 246, 0.85);
       border: 2px dashed #d3b2b0;
       border-radius: 15px;
       padding: 12px;
@@ -87,64 +131,27 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    
-    body {
-      background-color: #ebdcd9;
-      /* Pola outline hati yang selang-seling & berantakan alami */
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%239e5b5b' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- Hati Utama --%3E%3Cpath stroke-width='1.8' transform='translate(8,8) scale(0.7) rotate(-12 12 12)' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C!-- Hati Kedua (Geser & Miring) --%3E%3Cpath stroke-width='1.5' transform='translate(36,32) scale(0.55) rotate(18 12 12)' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/g%3E%3C/svg%3E");
-      background-size: 50px 50px; /* Jarak kerapatan pola */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px 15px;
-      overflow: hidden;
-    }
 
-    .card {
-      background: #fdfbf7;
-      border: 1px dashed #9e5b5b;
-      border-radius: 10px;
-      padding: 15px 10px;
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-      position: relative;
-      height: auto;
-      overflow: visible;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    h2 {
-      color: #7a2e2e;
-      margin-bottom: 12px;
-      font-size: clamp(18px, 5vw, 22px);
-    }
-
-    /* Toast Notification */
-    .toast {
+    #toast, .toast, div[class*="toast"] {
       position: absolute;
       top: -15px;
       left: 50%;
       transform: translateX(-50%);
-      background: #ffffff;
-      border: 1px solid #7a2e2e;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.5) !important;
+      backdrop-filter: blur(1px) !important;
+      -webkit-backdrop-filter: blur(1px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      border-radius: 12px !important;
       padding: 6px 14px;
       font-size: 11px;
-      color: #333;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      color: #5a2e2e !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
       white-space: nowrap;
       z-index: 99;
       max-width: 90%;
       pointer-events: none;
     }
 
-    /* Page 1: PIN Input 6 Digit */
     .pin-container {
       display: flex;
       justify-content: center;
@@ -174,9 +181,7 @@
       z-index: 5;
     }
 
-    .clue-btn:hover {
-      color: #9e5b5b;
-    }
+    .clue-btn:hover { color: #9e5b5b; }
 
     .btn {
       background-color: #9e5b5b;
@@ -192,15 +197,9 @@
       z-index: 5;
     }
 
-    .btn:active {
-      transform: scale(0.96);
-    }
+    .btn:active { transform: scale(0.96); }
+    .btn:hover { background-color: #7a2e2e; }
 
-    .btn:hover {
-      background-color: #7a2e2e;
-    }
-
-    /* Page 2: Game Area */
     .game-box {
       width: 100%;
       height: 200px;
@@ -208,7 +207,7 @@
       border-radius: 15px;
       position: relative;
       margin: 15px 0;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.4);
       overflow: hidden;
       touch-action: manipulation;
     }
@@ -221,7 +220,6 @@
       padding: 10px;
     }
 
-    /* Page 4: Options */
     .btn-group {
       display: flex;
       justify-content: center;
@@ -239,241 +237,194 @@
       position: relative;
       transition: transform 0.2s ease;
     }
-
-    /* Page 5: Final Photo Layout & Scroll khusus */
-    #page-5 {
-      max-height: 95vh;
-      overflow-y: auto;
-      padding-right: 5px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    #page-5::-webkit-scrollbar {
-      display: none;
-    }
-
-    .photo-card {
-      background: #9e5b5b;
-      padding: 10px;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
-
-    .photo-placeholder {
-      width: 100%;
-      max-height: 220px;
-      background: #ccc;
-      border-radius: 5px;
-      object-fit: cover;
-    }
   </style>
 </head>
-<body>
+  <body>
 
-  <div class="card">
-    <div id="toast" class="toast hidden"></div>
+    <div class="card">
+      <div id="toast" class="toast hidden"></div>
 
-    <!-- Halaman 1: PIN 6 Digit -->
-    <div id="page-1">
-      <h2>Hai, Caiii! 🙋‍♀️</h2>
-      <p style="font-size: 12px; color: #666;">Masukkan PIN Untuk Membuka Pesan Ini:</p>
-      <div class="pin-container">
-        <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
-        <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
-        <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
-        <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
-        <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
-        <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+      <!-- Halaman 1: PIN 6 Digit -->
+      <div id="page-1">
+        <h2>Haii, Caiii! 🙋‍♀️</h2>
+        <p style="font-size: 12px; color: #666;">Masukkan PIN Untuk Membuka Pesan Ini:</p>
+        <div class="pin-container">
+          <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+          <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+          <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+          <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+          <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+          <input type="password" maxlength="1" class="pin-input" inputmode="numeric">
+        </div>
+        <div>
+          <span class="clue-btn" onclick="showToast('Cluenya: Tanggal Lahir Kamu! 💖')">Need a Clue?</span>
+        </div>
+        <button class="btn" onclick="checkPin()">Open Me</button>
       </div>
-      <div>
-        <span class="clue-btn" onclick="showToast('Cluenya: Tanggal Lahir Kamu! 💖')">Need a Clue?</span>
+
+      <!-- Halaman 2: Mini Game -->
+      <div id="page-2" class="hidden">
+        <h2>Silahkan Taptap Layar Dulu Yaa WKWK</h2>
+        <p style="font-size: 12px; color: #555;">Pencet Love Ini 3 Kali Ajaa Buat Lanjut Yaa</p>
+        <div style="font-size: 13px; margin-top: 5px; font-weight: bold;" id="score-text">Skor: 0/3</div>
+        <div class="game-box" id="game-box">
+          <div id="target" class="target-heart">💖</div>
+        </div>
       </div>
-      <button class="btn" onclick="checkPin()">Open Me</button>
+
+      <!-- Halaman 3: Surat -->
+      <div id="page-3" class="hidden">
+        <h2>Kamu Penasaran Gaak?</h2>
+        <div class="floating-envelope" onclick="goToPage('page-4')">💌</div>
+        <p style="font-size: 12px; color: #666;">Klik Suratnya Biar Kebukaa</p>
+      </div>
+
+      <!-- Halaman 4: Ajakan Dinner -->
+      <div id="page-4" class="hidden">
+        <h2>Hmm Kamu Mau Tidak Mainn Ama Akuu?</h2>
+        <div class="btn-group">
+          <button class="btn" onclick="acceptDinner()">Maoo Ayooo!!</button>
+          <button class="btn btn-secondary" id="btn-no" onmouseover="moveNoButton()" onclick="moveNoButton()" ontouchstart="moveNoButton()">Tidaaakk</button>
+        </div>
+      </div>
+
+      <!-- Halaman 5: Final / Date -->
+      <div id="page-5" class="hidden">
+        <h2>Happy Birthday Caiii!</h2>
+        <p style="font-size: 14px; color: #555;">Ciee Bertambah 1 Tahun Usiamuu 🥰</p>
+        <div style="margin: 8px 0; color: #9e5b5b;">🌸 🌸 🌸</div>
+
+        <div class="photo-grid">
+          <div class="polaroid-card grid-item-wide">
+            <img src="https://i.ibb.co.com/yc1nBj7F/IMG-1940.jpg" alt="IMG-1940">
+            <p class="polaroid-caption">Gemeshh 🥰</p>
+          </div>
+
+          <div class="polaroid-card">
+            <img src="https://i.ibb.co.com/xq7RJXBF/IMG-1938.jpg" alt="IMG-1938">
+            <p class="polaroid-caption">Twinn ✨</p>
+          </div>
+
+          <div class="polaroid-card">
+            <img src="https://i.ibb.co.com/rrjBWLt/IMG-1939.jpg" alt="IMG-1939">
+            <p class="polaroid-caption">Uwwuu 🥰</p>
+          </div>
+        </div>
+
+        <div class="note-card">
+          <p style="font-size: 12px; color: #7a2e2e; font-weight: bold; margin-bottom: 8px;">Pesan Spesial Buat Kamu 💌</p>
+          <img src="https://i.ibb.co.com/QvfdrPyN/IMG-1941.jpg" alt="IMG-1941">
+        </div>
+
+        <div style="margin-top: 20px; text-align: left; font-size: 13px; color: #555; line-height: 1.6;">
+          <p><b>Rencana Main Kita :</b></p>
+          <ul style="padding-left: 20px; margin-top: 5px;">
+            <li>📍 Tempat: My Home (Dilia's home)</li>
+            <li>⏰ Jam: Anytime</li>
+            <li>👗 Dresscode: Baju Ternyaman Kamu!</li>
+          </ul>
+          <p style="margin-top: 15px; text-align: center; font-style: italic;">See you soon, cantiiik! ❤️</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Halaman 2: Mini Game -->
-    <div id="page-2" class="hidden">
-      <h2>Silahkan Taptap Layar Dulu Yaa WKWK</h2>
-      <p style="font-size: 12px; color: #555;">Pencet Love Ini 3 Kali Ajaa Buat Lanjut Yaa</p>
-      <div style="font-size: 13px; margin-top: 5px; font-weight: bold;" id="score-text">Skor: 0/3</div>
-      <div class="game-box" id="game-box">
-        <div id="target" class="target-heart">💖</div>
-      </div>
-    </div>
+    <script>
+      const CORRECT_PIN = "110804"; 
 
-    <!-- Halaman 3: Surat -->
-    <div id="page-3" class="hidden">
-      <h2>Kamu Penasaran Kannn?</h2>
-      <div class="floating-envelope" onclick="goToPage('page-4')">
-        💌
-      </div>
-      <p style="font-size: 12px; color: #666;">Klik Suratnya Biar Kebukaa</p>
-    </div>
+      const inputs = document.querySelectorAll('.pin-input');
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+          if (input.value.length === 1 && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        });
 
-    <!-- Halaman 4: Ajakan Dinner -->
-    <div id="page-4" class="hidden">
-      <h2>Hmm Kamu Mau Tidak Mainn Ama Akuu?</h2>
-      <div class="btn-group">
-        <button class="btn" onclick="acceptDinner()">Maoo Ayooo!!</button>
-        <button class="btn btn-secondary" id="btn-no" onmouseover="moveNoButton()" onclick="moveNoButton()" ontouchstart="moveNoButton()">Tidaaakk</button>
-      </div>
-    </div>
-
-    <!-- Halaman 5: Final / Date -->
-  <!-- Halaman 5: Final / Date -->
-  <div id="page-5" class="hidden">
-    <h2>Ayo Kita Mainn!</h2>
-    <p style="font-size: 14px; color: #555;">yeyyy 🥰</p>
-    <div style="margin: 8px 0; color: #9e5b5b;">🌸 🌸 🌸</div>
-
-    <!-- GALERI 3 FOTO -->
-    <div class="photo-grid">
-      <!-- Foto 1 (Utama / Paling Besar) -->
-      <div class="polaroid-card grid-item-wide">
-          <img src="https://i.ibb.co.com/yc1nBj7F/IMG-1940.jpg" alt="IMG-1940" border="0"
-        <p class="polaroid-caption">Gemeshh 🥰</p>
-      </div>
-
-      <!-- Foto 2 (Kiri) -->
-      <div class="polaroid-card">
-          <img src="https://i.ibb.co.com/xq7RJXBF/IMG-1938.jpg" alt="IMG-1938" border="0"
-        <p class="polaroid-caption">Favorite day ✨</p>
-      </div>
-
-      <!-- Foto 3 (Kanan) -->
-      <div class="polaroid-card">
-          <img src="https://i.ibb.co.com/rrjBWLt/IMG-1939.jpg" alt="IMG-1939" border="0"
-        <p class="polaroid-caption">Uwwuu 🥰</p>
-      </div>
-    </div>
-
-    <!-- FOTO NOTES UCAPAN (Atas Rencana Dinner) -->
-    <div class="note-card">
-      <p style="font-size: 12px; color: #7a2e2e; font-weight: bold; margin-bottom: 8px;">Pesan Spesial Buat Kamu 💌</p>
-        <img src="https://i.ibb.co.com/QvfdrPyN/IMG-1941.jpg" alt="IMG-1941" border="0"
-    </div>
-
-    <!-- Detail Rencana Dinner -->
-    <div style="margin-top: 20px; text-align: left; font-size: 13px; color: #555; line-height: 1.6;">
-      <p><b>Rencana Main Kita:</b></p>
-      <ul style="padding-left: 20px; margin-top: 5px;">
-        <li>📍 Tempat: My Home (Dilia's home)</li>
-        <li>⏰ Jam: Anytime</li>
-        <li>👗 Dresscode: Baju terlucu kamu!</li>
-      </ul>
-      <p style="margin-top: 15px; text-align: center; font-style: italic;">See you soon, cantiiik! ❤️</p>
-    </div>
-  </div>
-
-  <script>
-    // --- PIN SYSTEM (6 DIGIT) ---
-    const CORRECT_PIN = "110804"; 
-
-    const inputs = document.querySelectorAll('.pin-input');
-    inputs.forEach((input, index) => {
-      input.addEventListener('input', (e) => {
-        if (input.value.length === 1 && index < inputs.length - 1) {
-          inputs[index + 1].focus();
-        }
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && input.value === '' && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
       });
 
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace' && input.value === '' && index > 0) {
-          inputs[index - 1].focus();
-        }
-      });
-    });
+      function checkPin() {
+        let enteredPin = "";
+        inputs.forEach(input => enteredPin += input.value);
 
-    function checkPin() {
-      let enteredPin = "";
-      inputs.forEach(input => enteredPin += input.value);
-
-      if (enteredPin === CORRECT_PIN) {
-        showToast("Yeyy Kamu Masii Ingett, haloo Caiii");
-        setTimeout(() => {
-          goToPage('page-2');
-          startGame();
-        }, 1200);
-      } else {
-        showToast("PIN nya salah wey! MASA LUPAAA!! 😡");
-      }
-    }
-
-    // --- MINI GAME SYSTEM ---
-    let score = 0;
-    function startGame() {
-      score = 0;
-      document.getElementById('score-text').innerText = `Skor: 0/3`;
-      const target = document.getElementById('target');
-      moveTarget();
-
-      target.onclick = (e) => {
-        e.stopPropagation();
-        score++;
-        document.getElementById('score-text').innerText = `Skor: ${score}/3`;
-        if (score >= 3) {
-          goToPage('page-3');
+        if (enteredPin === CORRECT_PIN) {
+          showToast("Yeyy Kamu Masii Ingett, haloo Caiii");
+          setTimeout(() => {
+            goToPage('page-2');
+            startGame();
+          }, 1200);
         } else {
-          moveTarget();
+          showToast("PIN nya salah wey! MASA LUPAAA!! 😡");
         }
-      };
-    }
+      }
 
-    function moveTarget() {
-      const box = document.getElementById('game-box');
-      const target = document.getElementById('target');
-      const maxX = box.clientWidth - 45;
-      const maxY = box.clientHeight - 45;
+      let score = 0;
+      function startGame() {
+        score = 0;
+        document.getElementById('score-text').innerText = `Skor: 0/3`;
+        moveTarget();
 
-      const randomX = Math.max(10, Math.floor(Math.random() * maxX));
-      const randomY = Math.max(10, Math.floor(Math.random() * maxY));
+        const target = document.getElementById('target');
+        target.onclick = (e) => {
+          e.stopPropagation();
+          score++;
+          document.getElementById('score-text').innerText = `Skor: ${score}/3`;
+          if (score >= 3) {
+            goToPage('page-3');
+          } else {
+            moveTarget();
+          }
+        };
+      }
 
-      target.style.left = randomX + 'px';
-      target.style.top = randomY + 'px';
-    }
+      function moveTarget() {
+        const box = document.getElementById('game-box');
+        const target = document.getElementById('target');
+        const maxX = box.clientWidth - 45;
+        const maxY = box.clientHeight - 45;
 
-    // --- NO BUTTON DODGE SYSTEM (RESPONSIF) ---
-    function moveNoButton() {
-      showToast("Eittss Tidak Bolee Menolakk Tombolnya Juga Rusak 😝");
-      const btnNo = document.getElementById('btn-no');
+        const randomX = Math.max(10, Math.floor(Math.random() * maxX));
+        const randomY = Math.max(10, Math.floor(Math.random() * maxY));
 
-      const x = (Math.random() - 0.5) * 120;
-      const y = (Math.random() - 0.5) * 80;
+        target.style.left = randomX + 'px';
+        target.style.top = randomY + 'px';
+      }
 
-      btnNo.style.transform = `translate(${x}px, ${y}px)`;
-    }
+      function moveNoButton() {
+        showToast("Eittss Tidak Bolee Menolakk 😝");
+        const btnNo = document.getElementById('btn-no');
+        const x = (Math.random() - 0.5) * 120;
+        const y = (Math.random() - 0.5) * 80;
+        btnNo.style.transform = `translate(${x}px, ${y}px)`;
+      }
 
-    function acceptDinner() {
-      hideToast();
-      goToPage('page-5');
-    }
-
-    // --- UTILS ---
-    function goToPage(pageId) {
-      document.querySelectorAll('.card > div').forEach(div => {
-        if(div.id !== 'toast') div.classList.add('hidden');
-      });
-      document.getElementById(pageId).classList.remove('hidden');
-    }
-
-    let toastTimer; 
-
-    function showToast(text) {
-      const toast = document.getElementById('toast');
-      toast.innerText = text;
-      toast.classList.remove('hidden');
-
-      clearTimeout(toastTimer);
-
-      toastTimer = setTimeout(() => {
+      function acceptDinner() {
         hideToast();
-      }, 2000); 
-    }
+        goToPage('page-5');
+      }
 
-    function hideToast() {
-      document.getElementById('toast').classList.add('hidden');
-    }
-  </script>
-</body>
-</html>
+      function goToPage(pageId) {
+        document.querySelectorAll('.card > div').forEach(div => {
+          if(div.id !== 'toast') div.classList.add('hidden');
+        });
+        document.getElementById(pageId).classList.remove('hidden');
+      }
+
+      let toastTimer; 
+      function showToast(text) {
+        const toast = document.getElementById('toast');
+        toast.innerText = text;
+        toast.classList.remove('hidden');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(hideToast, 2000); 
+      }
+
+      function hideToast() {
+        document.getElementById('toast').classList.add('hidden');
+      }
+    </script>
+  </body>
+  </html>
